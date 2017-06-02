@@ -1,0 +1,58 @@
+{
+  "name": "axis3d-inputs",
+  "version": "1.0.0",
+  "description": "Common user inputs for Axis3D.",
+  "main": "index.js",
+  "scripts": {
+    "test": "browserify test.js | devtool -hqc -t 5000 | colortape",
+    "test-debug": "browserify test.js | devtool -qc | colortape",
+    "example": "budo example -p 3000 --live --verbose"
+  },
+  "keywords": [
+    "axis3d",
+    "webgl",
+    "input",
+    "keyboard",
+    "mouse",
+    "touch"
+  ],
+  "author": "Joseph Werle <werle@littlstar.com>",
+  "license": "MIT",
+  "dependencies": {
+    "defined": "^1.0.0",
+    "dom-events": "^0.1.1",
+    "events": "^1.1.1",
+    "keycode": "^2.1.9",
+    "mouse-change": "^1.4.0",
+    "mouse-event-offset": "^3.0.2",
+    "mouse-wheel": "^1.2.0",
+    "raf": "^3.3.2"
+  },
+  "devDependencies": {
+    "axis3d": "^0.1.x",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "budo": "^10.0.3",
+    "bunny": "^1.0.1",
+    "clamp": "^1.0.1",
+    "colortape": "^0.1.2",
+    "devtool": "^2.3.1",
+    "domready": "^1.0.8",
+    "eye-vector": "^1.0.0",
+    "gl-quat": "^1.0.0",
+    "gl-vec2": "^1.0.0",
+    "gl-vec3": "^1.0.3",
+    "lerp": "^1.0.3",
+    "stats.js": "^0.17.0",
+    "tape": "^4.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlstar/axis3d-inputs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/littlstar/axis3d-inputs/issues"
+  },
+  "homepage": "https://github.com/littlstar/axis3d-inputs#readme"
+}
