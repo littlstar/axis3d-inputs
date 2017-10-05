@@ -44,16 +44,20 @@ function createTouchCommand(ctx) {
     throw new TypeError("createTouchCommand(): Expecting context object.")
   }
 
-  events.on(ctx.domElement, 'touchstart', ontouchstart, false)
-  events.on(ctx.domElement, 'touchmove',  ontouchmove, false)
-  events.on(ctx.domElement, 'touchend', ontouchend, false)
-  events.on(ctx.domElement, 'touchcancel', ontouchend, false)
+  if (ctx.domElement) {
+    events.on(ctx.domElement, 'touchstart', ontouchstart, false)
+    events.on(ctx.domElement, 'touchmove',  ontouchmove, false)
+    events.on(ctx.domElement, 'touchend', ontouchend, false)
+    events.on(ctx.domElement, 'touchcancel', ontouchend, false)
+  }
 
-  ctx.once('destroy', function() {
-    events.off(ctx.domElement, 'touchstart', ontouchstart, false)
-    events.off(ctx.domElement, 'touchmove', ontouchmove, false)
-    events.off(ctx.domElement, 'touchend', ontouchend, false)
-    events.off(ctx.domElement, 'touchcancel', ontouchend, false)
+  ctx.once('beforedestroy', function() {
+    if (ctx.domElement) {
+      events.off(ctx.domElement, 'touchstart', ontouchstart, false)
+      events.off(ctx.domElement, 'touchmove', ontouchmove, false)
+      events.off(ctx.domElement, 'touchend', ontouchend, false)
+      events.off(ctx.domElement, 'touchcancel', ontouchend, false)
+    }
   })
 
   return createCommand(state)

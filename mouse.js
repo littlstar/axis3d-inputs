@@ -55,14 +55,19 @@ function createMouseCommand(ctx, opts) {
     current: {mouse: mouse, wheel: wheel, allowWheel: allowWheel}
   }
 
-  const mouseChangeListener = onMouseChange(ctx.domElement, onmousechange)
-  const mouseWheelListener = onMouseWheel(ctx.domElement, onmousewheel)
-
   ctx.on('blur', function () { mouse.buttons = 0 })
-  ctx.once('destroy', function () {
-    mouseChangeListener.enabled = false
-    events.off(ctx.domElement, mouseWheelListener)
-  })
+
+  if (ctx.domElement) {
+    const mouseChangeListener = onMouseChange(ctx.domElement, onmousechange)
+    const mouseWheelListener = onMouseWheel(ctx.domElement, onmousewheel)
+
+    ctx.once('beforedestroy', function () {
+      mouseChangeListener.enabled = false
+      if (ctx.domElement) {
+        events.off(ctx.domElement, mouseWheelListener)
+      }
+    })
+  }
 
   return createCommand(state)
 

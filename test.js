@@ -1,56 +1,56 @@
-const { KeyboardInput, MouseInput, TouchInput } = require('./')
+const { Keyboard, Mouse, Touch } = require('./')
 const { Context } = require('axis3d')
 const test = require('tape')
 const ctx = new Context()
 
-test("KeyboardInput", ({test, end}) => {
-  test("KeyboardInput() throws TypeError for bad inputs", ({throws, end}) => {
-    throws(() => { KeyboardInput(null) }, TypeError, "for null argument")
-    throws(() => { KeyboardInput(undefined) }, TypeError, "for undefined argument")
-    throws(() => { KeyboardInput(0) }, TypeError, "for number argument")
-    throws(() => { KeyboardInput(true) }, TypeError, "for boolean argument")
-    throws(() => { KeyboardInput([]) }, TypeError, "for array argument")
+test("Keyboard", ({test, end}) => {
+  test("Keyboard() throws TypeError for bad inputs", ({throws, end}) => {
+    throws(() => { Keyboard(null) }, TypeError, "for null argument")
+    throws(() => { Keyboard(undefined) }, TypeError, "for undefined argument")
+    throws(() => { Keyboard(0) }, TypeError, "for number argument")
+    throws(() => { Keyboard(true) }, TypeError, "for boolean argument")
+    throws(() => { Keyboard([]) }, TypeError, "for array argument")
     end()
   })
 
-  test("KeyboardInput() returns a function for correct input", ({pass, end}) => {
-    pass('function' == typeof KeyboardInput(ctx))
-    end()
-  })
-
-  end()
-})
-
-test('MouseInput', ({test, end}) => {
-  test("MouseInput() throws TypeError for bad inputs", ({throws, end}) => {
-    throws(() => { MouseInput(null) }, TypeError, "for null argument")
-    throws(() => { MouseInput(undefined) }, TypeError, "for undefined argument")
-    throws(() => { MouseInput(0) }, TypeError, "for number argument")
-    throws(() => { MouseInput(true) }, TypeError, "for boolean argument")
-    throws(() => { MouseInput([]) }, TypeError, "for array argument")
-    end()
-  })
-
-  test("MouseInput() returns a function for correct input", ({pass, end}) => {
-    pass('function' == typeof MouseInput(ctx))
+  test("Keyboard() returns a function for correct input", ({pass, end}) => {
+    pass('function' == typeof Keyboard(ctx))
     end()
   })
 
   end()
 })
 
-test('TouchInput', ({test, end}) => {
-  test("KeyboardInput() throws TypeError for bad inputs", ({throws, end}) => {
-    throws(() => { TouchInput(null) }, TypeError, "for null argument")
-    throws(() => { TouchInput(undefined) }, TypeError, "for undefined argument")
-    throws(() => { TouchInput(0) }, TypeError, "for number argument")
-    throws(() => { TouchInput(true) }, TypeError, "for boolean argument")
-    throws(() => { TouchInput([]) }, TypeError, "for array argument")
+test('Mouse', ({test, end}) => {
+  test("Mouse() throws TypeError for bad inputs", ({throws, end}) => {
+    throws(() => { Mouse(null) }, TypeError, "for null argument")
+    throws(() => { Mouse(undefined) }, TypeError, "for undefined argument")
+    throws(() => { Mouse(0) }, TypeError, "for number argument")
+    throws(() => { Mouse(true) }, TypeError, "for boolean argument")
+    throws(() => { Mouse([]) }, TypeError, "for array argument")
     end()
   })
 
-  test("TouchInput() returns a function for correct input", ({pass, end}) => {
-    pass('function' == typeof TouchInput(ctx))
+  test("Mouse() returns a function for correct input", ({pass, end}) => {
+    pass('function' == typeof Mouse(ctx))
+    end()
+  })
+
+  end()
+})
+
+test('Touch', ({test, end}) => {
+  test("Keyboard() throws TypeError for bad inputs", ({throws, end}) => {
+    throws(() => { Touch(null) }, TypeError, "for null argument")
+    throws(() => { Touch(undefined) }, TypeError, "for undefined argument")
+    throws(() => { Touch(0) }, TypeError, "for number argument")
+    throws(() => { Touch(true) }, TypeError, "for boolean argument")
+    throws(() => { Touch([]) }, TypeError, "for array argument")
+    end()
+  })
+
+  test("Touch() returns a function for correct input", ({pass, end}) => {
+    pass('function' == typeof Touch(ctx))
     end()
   })
 
