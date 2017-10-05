@@ -1,6 +1,6 @@
 {
   "name": "axis3d-inputs",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Common user inputs for Axis3D.",
   "main": "index.js",
   "scripts": {
